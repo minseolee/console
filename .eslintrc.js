@@ -18,8 +18,12 @@ module.exports = {
         'vue/component-name-in-template-casing': ['error', 'kebab-case'],
         'vue/valid-v-slot': ['error', { allowModifiers: true }],
         'max-len': ['error', { code: 200 }],
-        'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        'vue/max-len': 1,
+        'global-require': 1,
+        'vuejs-accessibility/alt-text': ['off'],
+        'vue/no-template-target-blank': ['off'],
+        // 'no-console': import.meta.env.PROD ? 'error' : 'off',
+        // 'no-debugger': import.meta.env.PROD ? 'error' : 'off',
         'vue/html-indent': ['error', 4],
         indent: ['error', 4],
         'prefer-destructuring': ['error', { object: false, array: false }],
@@ -37,16 +41,10 @@ module.exports = {
             },
         ],
         camelcase: 'off',
-        'vue/max-attributes-per-line': [
-            'error',
-            {
-                singleline: 3,
-                multiline: {
-                    max: 3,
-                    allowFirstLine: true,
-                },
-            },
-        ],
+        'vue/max-attributes-per-line': 0,
+        'vue/first-attribute-linebreak': ['off'],
+        'function-paren-newline': ['off'],
+        'no-multiple-lines': ['off'],
         'no-this-before-super': ['off'],
         'no-useless-constructor': ['off'],
         'no-empty-function': ['error', { allow: ['constructors', 'arrowFunctions'] }],
@@ -201,7 +199,7 @@ module.exports = {
     parserOptions: {
         parser: '@typescript-eslint/parser',
         sourceType: 'module',
-        ecmaVersion: 2018,
+        ecmaVersion: 'latest',
     },
 
     settings: {

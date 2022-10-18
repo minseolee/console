@@ -4,12 +4,12 @@ import Fragment from 'vue-fragment';
 import SpaceDesignSystem from '@spaceone/design-system';
 import PortalVue from 'portal-vue';
 import VTooltip from 'v-tooltip';
+import './index.css';
 
 import directive from '@/directives';
 import { SpaceRouter } from '@/router';
 import { store } from '@/store';
 import { i18n } from '@/translations';
-
 
 import { siteInit } from '@/lib/site-initializer';
 
@@ -17,7 +17,6 @@ import App from './App.vue';
 
 import '@/styles/style.pcss';
 import '@spaceone/design-system/css/light-style.css';
-
 
 /** ********** SET VUE PLUGINS ************** */
 Vue.use(Fragment.Plugin);
@@ -27,7 +26,6 @@ Vue.use(PortalVue);
 directive(Vue);
 
 Vue.use(SpaceDesignSystem);
-
 
 (async () => {
     await siteInit();
