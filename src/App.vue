@@ -53,7 +53,7 @@
                 :src="$store.state.file.downloadSource" width="1" height="1"
         />
         <!-- Modal for Cross Browsing -->
-        <recommended-browser-modal v-if="showsBrowserRecommendation()" />
+        <!--        <recommended-browser-modal v-if="showsBrowserRecommendation()" />-->
         <mobile-guide-modal v-if="$store.state.display.visibleMobileGuideModal" />
     </div>
 </template>
@@ -78,7 +78,7 @@ import { getRouteAccessLevel } from '@/lib/access-control';
 import { ACCESS_LEVEL } from '@/lib/access-control/config';
 import { supportsBrowser } from '@/lib/helper/cross-browsing-helper';
 
-import RecommendedBrowserModal from '@/common/modules/modals/RecommendedBrowserModal.vue';
+// import RecommendedBrowserModal from '@/common/modules/modals/RecommendedBrowserModal.vue';
 import GNB from '@/common/modules/navigations/gnb/GNB.vue';
 import NoticePopup from '@/common/modules/popup/notice/NoticePopup.vue';
 import TopNotification from '@/common/modules/portals/TopNotification.vue';
@@ -95,7 +95,7 @@ export default defineComponent({
         NoticePopup,
         MobileGuideModal,
         // SurveyModal,
-        RecommendedBrowserModal,
+        // RecommendedBrowserModal,
         TopNotification,
         GNB: GNB as any,
         PNoticeAlert,
