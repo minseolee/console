@@ -2,11 +2,11 @@ import type { RouteConfig } from 'vue-router';
 
 import { DASHBOARD_ROUTE } from '@/services/dashboard/route-config';
 
-const DashboardContainer = () => import(/* webpackChunkName: "DashboardContainer" */ '@/services/dashboard/DashboardContainer.vue');
-const DashboardPage = () => import(/* webpackChunkName: "DashboardPage" */ '@/services/dashboard/dashboard/DashboardPage.vue');
-const CreateDashboardPage = () => import(/* webpackChunkName: "CreateDashboardPage" */ '@/services/dashboard/create-dashboard/CreateDashboardPage.vue');
-const EditDashboardPage = () => import(/* webpackChunkName: "EditDashboardPage" */ '@/services/dashboard/edit-dashboard/EditDashboardPage.vue');
-const DashboardDetailPage = () => import(/* webpackChunkName: "DashboardDetailPage */ '@/services/dashboard/dashboard-detail/DashboardDetailPage.vue');
+const DashboardContainer = () => import('@/services/dashboard/DashboardContainer.vue');
+const DashboardPage = () => import('@/services/dashboard/dashboard/DashboardPage.vue');
+const CreateDashboardPage = () => import('@/services/dashboard/create-dashboard/CreateDashboardPage.vue');
+const EditDashboardPage = () => import('@/services/dashboard/edit-dashboard/EditDashboardPage.vue');
+const DashboardDetailPage = () => import('@/services/dashboard/dashboard-detail/DashboardDetailPage.vue');
 
 const dashboardRoute: RouteConfig = {
     path: 'dashboard',
