@@ -42,10 +42,9 @@ import { PPageTitle, PButton } from '@spaceone/design-system';
 import { useFormValidator } from '@/common/composables/form-validator';
 
 import {
-    DASHBOARD_SCOPE_ENTIRE,
-    DASHBOARD_SCOPE_SINGLE,
-    DASHBOARD_VIEWER_PUBLIC,
-} from '@/services/dashboards/dashboard-create/config';
+    DASHBOARD_SCOPE,
+    DASHBOARD_VIEWER,
+} from '@/services/dashboards/config';
 import DashboardScopeForm from '@/services/dashboards/dashboard-create/modules/DashboardScopeForm.vue';
 import DashboardTemplateForm from '@/services/dashboards/dashboard-create/modules/DashboardTemplateForm.vue';
 import DashboardViewerForm from '@/services/dashboards/dashboard-create/modules/DashboardViewerForm.vue';
@@ -75,20 +74,20 @@ export default {
         }, {
             dashboardTemplate(value: boolean) { return !value ? 'Please Select Template' : ''; },
             dashboardProject(value: ProjectItemResp|undefined) {
-                return !value && state.dashboardScope === DASHBOARD_SCOPE_SINGLE
+                return !value && state.dashboardScope === DASHBOARD_SCOPE.SINGLE
                     ? 'Please Select Project' : '';
             },
         });
 
         const state = reactive({
-            dashboardScope: DASHBOARD_SCOPE_ENTIRE as DashboardScope,
-            dashboardViewerType: DASHBOARD_VIEWER_PUBLIC as DashboardViewerType,
+            dashboardScope: DASHBOARD_SCOPE.ENTIRE as DashboardScope,
+            dashboardViewerType: DASHBOARD_VIEWER.PUBLIC as DashboardViewerType,
         });
 
         const handleClickCreate = () => {
             const dashboardCreateParams = {
                 dashboardScope: state.dashboardScope,
-                dashboardProject: state.dashboardScope === DASHBOARD_SCOPE_ENTIRE ? '' : dashboardProject.value,
+                dashboardProject: state.dashboardScope === DASHBOARD_SCOPE.ENTIRE ? '' : dashboardProject.value,
                 dashboardTemplate: dashboardTemplate.value,
                 dashboardViewerType: state.dashboardViewerType,
             };

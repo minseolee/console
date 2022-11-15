@@ -6,13 +6,13 @@
             <div class="dashboard-scope-wrapper">
                 <p-radio-group direction="vertical">
                     <p-radio :selected="isEntireScope"
-                             @change="handleSelectScope(DASHBOARD_SCOPE_ENTIRE)"
+                             @change="handleSelectScope(DASHBOARD_SCOPE.ENTIRE)"
                     >
                         <!--                    song-lang-->
                         Entire Workspaces
                     </p-radio>
                     <p-radio :selected="!isEntireScope"
-                             @change="handleSelectScope(DASHBOARD_SCOPE_SINGLE)"
+                             @change="handleSelectScope(DASHBOARD_SCOPE.SINGLE)"
                     >
                         <!--                    song-lang-->
                         Single Project
@@ -39,7 +39,7 @@ import { store } from '@/store';
 
 import ProjectSelectDropdown from '@/common/modules/project/ProjectSelectDropdown.vue';
 
-import { DASHBOARD_SCOPE_ENTIRE, DASHBOARD_SCOPE_SINGLE } from '@/services/dashboards/dashboard-create/config';
+import { DASHBOARD_SCOPE } from '@/services/dashboards/config';
 import type { DashboardScope } from '@/services/dashboards/dashboard-create/type';
 import type { ProjectItemResp } from '@/services/project/type';
 
@@ -58,7 +58,7 @@ export default defineComponent({
         });
 
         const handleSelectScope = (scopeType: DashboardScope) => {
-            state.isEntireScope = scopeType === DASHBOARD_SCOPE_ENTIRE;
+            state.isEntireScope = scopeType === DASHBOARD_SCOPE.ENTIRE;
             emit('update:dashboardScope', scopeType);
         };
 
@@ -76,8 +76,7 @@ export default defineComponent({
             ...toRefs(state),
             handleSelectScope,
             handleSelectProjects,
-            DASHBOARD_SCOPE_ENTIRE,
-            DASHBOARD_SCOPE_SINGLE,
+            DASHBOARD_SCOPE,
         };
     },
 });

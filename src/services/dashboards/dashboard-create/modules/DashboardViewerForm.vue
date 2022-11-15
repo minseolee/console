@@ -8,7 +8,7 @@
                     <div>
                         <p-radio
                             :selected="isPublicViewer"
-                            @change="handleSelectViewer(DASHBOARD_VIEWER_PUBLIC)"
+                            @change="handleSelectViewer(DASHBOARD_VIEWER.PUBLIC)"
                         >
                             <!--                    song-lang-->
                             Public
@@ -21,7 +21,7 @@
                     <div>
                         <p-radio
                             :selected="!isPublicViewer"
-                            @change="handleSelectViewer(DASHBOARD_VIEWER_PRIVATE)"
+                            @change="handleSelectViewer(DASHBOARD_VIEWER.PRIVATE)"
                         >
                             <!--                    song-lang-->
                             Private
@@ -45,7 +45,7 @@ import {
     PPaneLayout, PPanelTop, PRadioGroup, PRadio,
 } from '@spaceone/design-system';
 
-import { DASHBOARD_VIEWER_PUBLIC, DASHBOARD_VIEWER_PRIVATE } from '@/services/dashboards/dashboard-create/config';
+import { DASHBOARD_VIEWER } from '@/services/dashboards/config';
 import type { DashboardViewerType } from '@/services/dashboards/dashboard-create/type';
 
 export default {
@@ -62,14 +62,13 @@ export default {
         });
 
         const handleSelectViewer = (viewerType: DashboardViewerType) => {
-            state.isPublicViewer = viewerType === DASHBOARD_VIEWER_PUBLIC;
+            state.isPublicViewer = viewerType === DASHBOARD_VIEWER.PUBLIC;
             emit('update:dashboardViewerType', viewerType);
         };
 
         return {
             ...toRefs(state),
-            DASHBOARD_VIEWER_PUBLIC,
-            DASHBOARD_VIEWER_PRIVATE,
+            DASHBOARD_VIEWER,
             handleSelectViewer,
         };
     },
