@@ -7,7 +7,7 @@
             <!--           song-lang-->
             <p-page-title :title="dashboard.name || 'DASHBOARD'">
                 <template #title-left-extra>
-                    <p-i v-if="dashboardType === DASHBOARD_TYPE.PUBLIC"
+                    <p-i v-if="dashboardType === DASHBOARD_VIEWER.PUBLIC"
                          name="ic_public"
                          width="1rem"
                          height="1rem"
@@ -18,7 +18,7 @@
                     <div class="left-part">
                         <p-icon-button name="ic_edit-text"
                                        class="edit-btn"
-                                       :disabled="!hasManagePermission && dashboardType === DASHBOARD_TYPE.PUBLIC"
+                                       :disabled="!hasManagePermission && dashboardType === DASHBOARD_VIEWER.PUBLIC"
                                        @click.stop="handleClickEditDashboard"
                         />
                         <cost-dashboard-more-menu :dashboard-id="dashboardId"
@@ -42,7 +42,7 @@
                                 <p-button icon-left="ic_edit"
                                           style-type="tertiary"
                                           size="sm"
-                                          :disabled="!hasManagePermission && dashboardType === DASHBOARD_TYPE.PUBLIC"
+                                          :disabled="!hasManagePermission && dashboardType === DASHBOARD_VIEWER.PUBLIC"
                                           @click.stop="handleClickCustomize"
                                 >
                                     {{ $t('BILLING.COST_MANAGEMENT.DASHBOARD.CUSTOMIZE.CUSTOMIZE') }}
@@ -126,7 +126,6 @@ import { useManagePermissionState } from '@/common/composables/page-manage-permi
 
 import { gray } from '@/styles/colors';
 
-import { DASHBOARD_TYPE } from '@/services/cost-explorer/cost-dashboard/lib/config';
 import { getDashboardLayout } from '@/services/cost-explorer/cost-dashboard/lib/helper';
 import CostDashboardFilter from '@/services/cost-explorer/cost-dashboard/modules/CostDashboardFilter.vue';
 import CostDashboardMoreMenu from '@/services/cost-explorer/cost-dashboard/modules/CostDashboardMoreMenu.vue';
@@ -139,6 +138,7 @@ import DashboardLayouts from '@/services/cost-explorer/cost-dashboard/modules/Da
 import type { DashboardInfo } from '@/services/cost-explorer/cost-dashboard/type';
 import { convertFiltersInToNewType } from '@/services/cost-explorer/lib/helper';
 import type { CostFiltersMap, Period } from '@/services/cost-explorer/type';
+import { DASHBOARD_VIEWER } from '@/services/dashboards/config';
 import { DASHBOARDS_ROUTE } from '@/services/dashboards/route-config';
 
 const PUBLIC_ICON_COLOR = gray[500];
@@ -305,7 +305,7 @@ export default {
             handleClickCustomize,
             handlePreviewRendered,
             handleClickCreate,
-            DASHBOARD_TYPE,
+            DASHBOARD_VIEWER,
             PUBLIC_ICON_COLOR,
         };
     },
