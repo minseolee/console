@@ -1,9 +1,9 @@
 import type {
-    DASHBOARD_SCOPE_ENTIRE, DASHBOARD_SCOPE_SINGLE, DASHBOARD_VIEWER_PRIVATE, DASHBOARD_VIEWER_PUBLIC,
-} from '@/services/dashboards/dashboard-create/config';
+    DASHBOARD_SCOPE, DASHBOARD_VIEWER,
+} from '@/services/dashboards/config';
 
 // SCOPE
-export type DashboardScope = typeof DASHBOARD_SCOPE_ENTIRE | typeof DASHBOARD_SCOPE_SINGLE;
+export type DashboardScope = typeof DASHBOARD_SCOPE.ENTIRE | typeof DASHBOARD_SCOPE.SINGLE;
 
 // VIEWER
-export type DashboardViewerType = typeof DASHBOARD_VIEWER_PUBLIC | typeof DASHBOARD_VIEWER_PRIVATE;
+export type DashboardViewerType = typeof DASHBOARD_VIEWER.PUBLIC | typeof DASHBOARD_VIEWER.PRIVATE;
